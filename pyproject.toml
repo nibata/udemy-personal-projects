@@ -1,0 +1,9 @@
+[project]
+name = "my-udemy-lab"
+version = "0.1.0"
+description = "My lab for learning IA topics from Udemy"
+requires-python = ">=3.14"
+dependencies = [
+    "google-adk>=1.25.1",
+    "litellm>=1.81.13",
+]
