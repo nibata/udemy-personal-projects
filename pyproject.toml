@@ -1,7 +1,8 @@
 [project]
 name = "my-udemy-lab"
 version = "0.1.0"
-description = "My lab for learning IA topics from Udemy"
+description = "Add your description here"
+readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "google-adk>=1.25.1",
