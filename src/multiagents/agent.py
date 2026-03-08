@@ -2,8 +2,7 @@ from google.adk.agents import Agent
 from google.adk.models.lite_llm import LiteLlm
 
 
-#AGENT_MODEL = "ollama_chat/mistral"
-AGENT_MODEL = "ollama_chat/llama3.2"
+AGENT_MODEL = "ollama_chat/llama3.1"
 
 def get_weather(city: str) -> dict:
     """Retrieve weather data for a given city
@@ -22,9 +21,10 @@ root_agent = Agent(name="travel_planner_agent",
                    model=LiteLlm(AGENT_MODEL),
                    description="Travel Planner Agent",
                    instruction=(
-                       "You are a trip travel planner. Help users find trips and check weather. "
-                       "When the user asks about weather, you MUST call the 'get_weather' tool with the city name. "
-                       "ONLY use tools that are explicitly listed. NEVER call tools that are not provided to you. "
-                       "Available tools: get_weather."
+                       "You are a helpful travel planner. "
+                       "1. If the user asks about weather, call the 'get_weather' tool. "
+                       "2. If the user asks about anything else (trips, general questions, or chat), "
+                       "   respond directly with text and DO NOT call any tools. "
+                       "3. If you don't have a tool for a request, just answer to the best of your ability."
                    ),
                    tools=[get_weather])
